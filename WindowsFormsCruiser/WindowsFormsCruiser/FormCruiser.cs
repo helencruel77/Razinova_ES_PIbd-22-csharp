@@ -13,58 +13,68 @@ namespace WindowsFormscruiser
 {
     public partial class FormCruiser : Form
     {
-        private ITransport warship;
+        Doki<ITransport> doki;
 
         public FormCruiser()
         {
             InitializeComponent();
+            doki = new Doki<ITransport>(20, pictureBoxDoki.Width, pictureBoxDoki.Height);
+            Draw();
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxCruiser.Width, pictureBoxCruiser.Height);
+            Bitmap bmp = new Bitmap(pictureBoxDoki.Width, pictureBoxDoki.Height);
             Graphics gr = Graphics.FromImage(bmp);
-
-            warship.DrawWarship(gr);
-            pictureBoxCruiser.Image = bmp;
+            doki.Draw(gr);
+            pictureBoxDoki.Image = bmp;
         }
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            warship = new Warship(rnd.Next(300, 600), rnd.Next(1000, 1000), Color.Black);
-            warship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCruiser.Width,
-           pictureBoxCruiser.Height);
-            Draw();
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                var warship = new Warship(100, 1000, dialog.Color);
+                int place = doki + warship;
+                Draw();
+            }
 
         }
         private void buttonCreateCruiser_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            warship = new Cruiser(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black,
-           Color.Gray, true, true);
-            warship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCruiser.Width,
-           pictureBoxCruiser.Height);
-            Draw();
-        }
-        private void buttonMove_Click(object sender, EventArgs e)
-        {
-            string name = (sender as Button).Name;
-            switch (name)
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                case "buttonUp":
-                    warship.MoveTransport(Direction.Up);
-                    break;
-                case "buttonDown":
-                    warship.MoveTransport(Direction.Down);
-                    break;
-                case "buttonLeft":
-                    warship.MoveTransport(Direction.Left);
-                    break;
-                case "buttonRight":
-                    warship.MoveTransport(Direction.Right);
-                    break;
+                ColorDialog dialogDop = new ColorDialog();
+                if (dialogDop.ShowDialog() == DialogResult.OK)
+                {
+                    var cruiser = new Cruiser(100, 1000, dialog.Color, dialogDop.Color, true, true);
+                    int place = doki + cruiser;
+                    Draw();
+                }
             }
-            Draw();
+        }
+        private void ButtonTakeWarship_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBox.Text != "")
+            {
+                var warship = doki - Convert.ToInt32(maskedTextBox.Text);
+                if (warship != null)
+                {
+                    Bitmap bmp = new Bitmap(pictureBoxTakeWarship.Width, pictureBoxTakeWarship.Height);
+                    Graphics gr = Graphics.FromImage(bmp);
+                    warship.SetPosition(10, 20, pictureBoxTakeWarship.Width, pictureBoxTakeWarship.Height);
+                    warship.DrawWarship(gr);
+                    pictureBoxTakeWarship.Image = bmp;
+                }
+                else
+                {
+                    Bitmap bmp = new Bitmap(pictureBoxTakeWarship.Width, pictureBoxTakeWarship.Height);
+                    pictureBoxTakeWarship.Image = bmp;
+                }
+                Draw();
+
+            }
         }
     }
 }

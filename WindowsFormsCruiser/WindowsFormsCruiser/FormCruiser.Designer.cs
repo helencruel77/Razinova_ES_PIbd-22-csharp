@@ -21,122 +21,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCruiser));
-            this.pictureBoxCruiser = new System.Windows.Forms.PictureBox();
-            this.buttonLeft = new System.Windows.Forms.Button();
-            this.buttonDown = new System.Windows.Forms.Button();
-            this.buttonRight = new System.Windows.Forms.Button();
-            this.buttonUp = new System.Windows.Forms.Button();
-            this.buttonCreateWarship = new System.Windows.Forms.Button();
+            this.pictureBoxDoki = new System.Windows.Forms.PictureBox();
+            this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonCreateCruiser = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCruiser)).BeginInit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxTakeWarship = new System.Windows.Forms.PictureBox();
+            this.buttonTakeWarship = new System.Windows.Forms.Button();
+            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoki)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeWarship)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBoxCruiser
+            // pictureBoxDoki
             // 
-            this.pictureBoxCruiser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxCruiser.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxCruiser.Name = "pictureBoxCruiser";
-            this.pictureBoxCruiser.Size = new System.Drawing.Size(800, 450);
-            this.pictureBoxCruiser.TabIndex = 1;
-            this.pictureBoxCruiser.TabStop = false;
+            this.pictureBoxDoki.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxDoki.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxDoki.Name = "pictureBoxDoki";
+            this.pictureBoxDoki.Size = new System.Drawing.Size(656, 450);
+            this.pictureBoxDoki.TabIndex = 1;
+            this.pictureBoxDoki.TabStop = false;
             // 
-            // buttonLeft
+            // buttonCreate
             // 
-            this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLeft.BackgroundImage = global::WindowsFormsCruiser.Properties.Resources.Left;
-            this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonLeft.Location = new System.Drawing.Point(686, 372);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(30, 30);
-            this.buttonLeft.TabIndex = 9;
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
-            // buttonDown
-            // 
-            this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDown.BackgroundImage = global::WindowsFormsCruiser.Properties.Resources.Down;
-            this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDown.Location = new System.Drawing.Point(712, 398);
-            this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(30, 30);
-            this.buttonDown.TabIndex = 8;
-            this.buttonDown.UseVisualStyleBackColor = true;
-            this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
-            // buttonRight
-            // 
-            this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRight.BackgroundImage = global::WindowsFormsCruiser.Properties.Resources.Right;
-            this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonRight.Location = new System.Drawing.Point(739, 372);
-            this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(30, 30);
-            this.buttonRight.TabIndex = 7;
-            this.buttonRight.UseVisualStyleBackColor = true;
-            this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
-            // buttonUp
-            // 
-            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
-            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUp.Location = new System.Drawing.Point(712, 345);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(30, 30);
-            this.buttonUp.TabIndex = 6;
-            this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
-            // buttonCreateWarship
-            // 
-            this.buttonCreateWarship.Location = new System.Drawing.Point(12, 12);
-            this.buttonCreateWarship.Name = "buttonCreateWarship";
-            this.buttonCreateWarship.Size = new System.Drawing.Size(207, 23);
-            this.buttonCreateWarship.TabIndex = 10;
-            this.buttonCreateWarship.Text = "создать военный корабль";
-            this.buttonCreateWarship.UseVisualStyleBackColor = true;
-            this.buttonCreateWarship.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreate.Location = new System.Drawing.Point(680, 12);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(108, 61);
+            this.buttonCreate.TabIndex = 2;
+            this.buttonCreate.Text = "Создать корабль";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // buttonCreateCruiser
             // 
-            this.buttonCreateCruiser.Location = new System.Drawing.Point(225, 12);
+            this.buttonCreateCruiser.Location = new System.Drawing.Point(680, 79);
             this.buttonCreateCruiser.Name = "buttonCreateCruiser";
-            this.buttonCreateCruiser.Size = new System.Drawing.Size(186, 23);
-            this.buttonCreateCruiser.TabIndex = 11;
-            this.buttonCreateCruiser.Text = "создать крейсер";
+            this.buttonCreateCruiser.Size = new System.Drawing.Size(108, 61);
+            this.buttonCreateCruiser.TabIndex = 3;
+            this.buttonCreateCruiser.Text = "Создать крейсер";
             this.buttonCreateCruiser.UseVisualStyleBackColor = true;
             this.buttonCreateCruiser.Click += new System.EventHandler(this.buttonCreateCruiser_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pictureBoxTakeWarship);
+            this.groupBox1.Controls.Add(this.buttonTakeWarship);
+            this.groupBox1.Controls.Add(this.maskedTextBox);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(662, 212);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(126, 226);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Забрать корабль";
+            // 
+            // pictureBoxTakeWarship
+            // 
+            this.pictureBoxTakeWarship.Location = new System.Drawing.Point(6, 115);
+            this.pictureBoxTakeWarship.Name = "pictureBoxTakeWarship";
+            this.pictureBoxTakeWarship.Size = new System.Drawing.Size(114, 92);
+            this.pictureBoxTakeWarship.TabIndex = 3;
+            this.pictureBoxTakeWarship.TabStop = false;
+            // 
+            // buttonTakeWarship
+            // 
+            this.buttonTakeWarship.Location = new System.Drawing.Point(16, 54);
+            this.buttonTakeWarship.Name = "buttonTakeWarship";
+            this.buttonTakeWarship.Size = new System.Drawing.Size(75, 23);
+            this.buttonTakeWarship.TabIndex = 2;
+            this.buttonTakeWarship.Text = "Забрать";
+            this.buttonTakeWarship.UseVisualStyleBackColor = true;
+            this.buttonTakeWarship.Click += new System.EventHandler(this.ButtonTakeWarship_Click);
+            // 
+            // maskedTextBox
+            // 
+            this.maskedTextBox.Location = new System.Drawing.Point(77, 19);
+            this.maskedTextBox.Name = "maskedTextBox";
+            this.maskedTextBox.Size = new System.Drawing.Size(25, 20);
+            this.maskedTextBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Место";
             // 
             // FormCruiser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCreateCruiser);
-            this.Controls.Add(this.buttonCreateWarship);
-            this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonDown);
-            this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.pictureBoxCruiser);
+            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.pictureBoxDoki);
             this.Name = "FormCruiser";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCruiser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoki)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeWarship)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxCruiser;
-        private System.Windows.Forms.Button buttonLeft;
-        private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.Button buttonRight;
-        private System.Windows.Forms.Button buttonUp;
-        private System.Windows.Forms.Button buttonCreateWarship;
+        private System.Windows.Forms.PictureBox pictureBoxDoki;
+        private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonCreateCruiser;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBoxTakeWarship;
+        private System.Windows.Forms.Button buttonTakeWarship;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

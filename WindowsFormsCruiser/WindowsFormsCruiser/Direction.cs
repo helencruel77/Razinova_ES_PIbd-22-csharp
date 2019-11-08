@@ -12,6 +12,5 @@ namespace WindowsFormsCruiser
         Down,
         Left,
         Right
-
     }
 }
