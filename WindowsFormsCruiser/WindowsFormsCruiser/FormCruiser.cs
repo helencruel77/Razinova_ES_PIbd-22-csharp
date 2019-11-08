@@ -13,68 +13,106 @@ namespace WindowsFormscruiser
 {
     public partial class FormCruiser : Form
     {
-        Doki<ITransport> doki;
+        MultiLevelDoki doki;
+        private const int countLevel = 5;
 
         public FormCruiser()
         {
             InitializeComponent();
-            doki = new Doki<ITransport>(20, pictureBoxDoki.Width, pictureBoxDoki.Height);
-            Draw();
+            doki = new MultiLevelDoki(countLevel, pictureBoxDoki.Width,
+            pictureBoxDoki.Height);
+            for (int i = 0; i < countLevel; i++)
+            {
+                listBoxLevels.Items.Add("Уровень " + (i + 1));
+            }
+            listBoxLevels.SelectedIndex = 0;
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxDoki.Width, pictureBoxDoki.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            doki.Draw(gr);
-            pictureBoxDoki.Image = bmp;
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxDoki.Width,
+                pictureBoxDoki.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                doki[listBoxLevels.SelectedIndex].Draw(gr);
+                pictureBoxDoki.Image = bmp;
+            }
         }
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                var warship = new Warship(100, 1000, dialog.Color);
-                int place = doki + warship;
-                Draw();
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var car = new Warship(100, 1000, dialog.Color);
+                    int place = doki[listBoxLevels.SelectedIndex] + car;
+                    if (place == -1)
+                    {
+                        MessageBox.Show("Нет свободных мест", "Ошибка",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    Draw();
+                }
             }
 
         }
         private void buttonCreateCruiser_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var cruiser = new Cruiser(100, 1000, dialog.Color, dialogDop.Color, true, true);
-                    int place = doki + cruiser;
-                    Draw();
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var warship = new Cruiser(100, 1000, dialog.Color,
+                       dialogDop.Color, true, true);
+                        int place = doki[listBoxLevels.SelectedIndex] + warship;
+                        if (place == -1)
+                        {
+                            MessageBox.Show("Нет свободных мест", "Ошибка",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Draw();
+                    }
                 }
             }
         }
         private void ButtonTakeWarship_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox.Text != "")
-            {
-                var warship = doki - Convert.ToInt32(maskedTextBox.Text);
-                if (warship != null)
-                {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeWarship.Width, pictureBoxTakeWarship.Height);
-                    Graphics gr = Graphics.FromImage(bmp);
-                    warship.SetPosition(10, 20, pictureBoxTakeWarship.Width, pictureBoxTakeWarship.Height);
-                    warship.DrawWarship(gr);
-                    pictureBoxTakeWarship.Image = bmp;
-                }
-                else
-                {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeWarship.Width, pictureBoxTakeWarship.Height);
-                    pictureBoxTakeWarship.Image = bmp;
-                }
-                Draw();
 
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                if (maskedTextBox.Text != "")
+                {
+                    var warship = doki[listBoxLevels.SelectedIndex] -
+                   Convert.ToInt32(maskedTextBox.Text);
+                    if (warship != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeWarship.Width,
+                       pictureBoxTakeWarship.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        warship.SetPosition(5, 5, pictureBoxTakeWarship.Width,
+                       pictureBoxTakeWarship.Height);
+                        warship.DrawWarship(gr);
+                        pictureBoxTakeWarship.Image = bmp;
+                    }
+                    else
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeWarship.Width,
+                       pictureBoxTakeWarship.Height);
+                        pictureBoxTakeWarship.Image = bmp;
+                    }
+                    Draw();
+                }
             }
+        }
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }
