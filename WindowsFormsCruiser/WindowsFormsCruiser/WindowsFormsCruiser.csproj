@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cruiser.cs" />
+    <Compile Include="CVehicle.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormCruiser.cs">
       <SubType>Form</SubType>
@@ -54,8 +55,10 @@
     <Compile Include="FormCruiser.Designer.cs">
       <DependentUpon>FormCruiser.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Warship.cs" />
     <EmbeddedResource Include="FormCruiser.resx">
       <DependentUpon>FormCruiser.cs</DependentUpon>
     </EmbeddedResource>

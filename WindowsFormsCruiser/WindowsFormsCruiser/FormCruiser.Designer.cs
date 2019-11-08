@@ -23,11 +23,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCruiser));
             this.pictureBoxCruiser = new System.Windows.Forms.PictureBox();
-            this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
+            this.buttonCreateWarship = new System.Windows.Forms.Button();
+            this.buttonCreateCruiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCruiser)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,16 +41,6 @@
             this.pictureBoxCruiser.TabIndex = 1;
             this.pictureBoxCruiser.TabStop = false;
             // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Location = new System.Drawing.Point(12, 12);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreate.TabIndex = 2;
-            this.buttonCreate.Text = "Создать";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
             // buttonLeft
             // 
             this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -60,6 +51,7 @@
             this.buttonLeft.Size = new System.Drawing.Size(30, 30);
             this.buttonLeft.TabIndex = 9;
             this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonDown
             // 
@@ -71,6 +63,7 @@
             this.buttonDown.Size = new System.Drawing.Size(30, 30);
             this.buttonDown.TabIndex = 8;
             this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonRight
             // 
@@ -82,6 +75,7 @@
             this.buttonRight.Size = new System.Drawing.Size(30, 30);
             this.buttonRight.TabIndex = 7;
             this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonUp
             // 
@@ -93,17 +87,39 @@
             this.buttonUp.Size = new System.Drawing.Size(30, 30);
             this.buttonUp.TabIndex = 6;
             this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
+            // 
+            // buttonCreateWarship
+            // 
+            this.buttonCreateWarship.Location = new System.Drawing.Point(12, 12);
+            this.buttonCreateWarship.Name = "buttonCreateWarship";
+            this.buttonCreateWarship.Size = new System.Drawing.Size(207, 23);
+            this.buttonCreateWarship.TabIndex = 10;
+            this.buttonCreateWarship.Text = "создать военный корабль";
+            this.buttonCreateWarship.UseVisualStyleBackColor = true;
+            this.buttonCreateWarship.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
+            // buttonCreateCruiser
+            // 
+            this.buttonCreateCruiser.Location = new System.Drawing.Point(225, 12);
+            this.buttonCreateCruiser.Name = "buttonCreateCruiser";
+            this.buttonCreateCruiser.Size = new System.Drawing.Size(186, 23);
+            this.buttonCreateCruiser.TabIndex = 11;
+            this.buttonCreateCruiser.Text = "создать крейсер";
+            this.buttonCreateCruiser.UseVisualStyleBackColor = true;
+            this.buttonCreateCruiser.Click += new System.EventHandler(this.buttonCreateCruiser_Click);
             // 
             // FormCruiser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCreateCruiser);
+            this.Controls.Add(this.buttonCreateWarship);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.pictureBoxCruiser);
             this.Name = "FormCruiser";
             this.Text = "Form1";
@@ -115,11 +131,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxCruiser;
-        private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonUp;
+        private System.Windows.Forms.Button buttonCreateWarship;
+        private System.Windows.Forms.Button buttonCreateCruiser;
     }
 }
 

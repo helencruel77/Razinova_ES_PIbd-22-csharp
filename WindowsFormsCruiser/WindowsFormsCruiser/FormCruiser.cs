@@ -13,7 +13,7 @@ namespace WindowsFormscruiser
 {
     public partial class FormCruiser : Form
     {
-        private Cruiser cruiser;
+        private ITransport warship;
 
         public FormCruiser()
         {
@@ -25,39 +25,62 @@ namespace WindowsFormscruiser
             Bitmap bmp = new Bitmap(pictureBoxCruiser.Width, pictureBoxCruiser.Height);
             Graphics gr = Graphics.FromImage(bmp);
 
-            cruiser.DrawCruiser(gr);
+            warship.DrawWarship(gr);
             pictureBoxCruiser.Image = bmp;
         }
-        
+        /// <summary>
+        /// Обработка нажатия кнопки "Создать"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            cruiser = new Cruiser(rnd.Next(300, 600), rnd.Next(1000, 1000), Color.Black,
+            warship = new Warship(rnd.Next(300, 600), rnd.Next(1000, 1000), Color.Black);
+            warship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCruiser.Width,
+           pictureBoxCruiser.Height);
+            Draw();
+
+        }
+        private void buttonCreateCruiser_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            warship = new Cruiser(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black,
            Color.Gray, true, true);
-            cruiser.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCruiser.Width,
+            warship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCruiser.Width,
            pictureBoxCruiser.Height);
             Draw();
         }
-      
+        /// <summary>
+        /// Обработка нажатия кнопок управления
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonMove_Click(object sender, EventArgs e)
         {
+            //получаем имя кнопки
             string name = (sender as Button).Name;
             switch (name)
             {
                 case "buttonUp":
-                    cruiser.MoveTransport(Direction.Up);
+                    warship.MoveTransport(Direction.Up);
                     break;
                 case "buttonDown":
-                    cruiser.MoveTransport(Direction.Down);
+                    warship.MoveTransport(Direction.Down);
                     break;
                 case "buttonLeft":
-                    cruiser.MoveTransport(Direction.Left);
+                    warship.MoveTransport(Direction.Left);
                     break;
                 case "buttonRight":
-                    cruiser.MoveTransport(Direction.Right);
+                    warship.MoveTransport(Direction.Right);
                     break;
             }
             Draw();
         }
+
+
+
+
+
     }
 }
