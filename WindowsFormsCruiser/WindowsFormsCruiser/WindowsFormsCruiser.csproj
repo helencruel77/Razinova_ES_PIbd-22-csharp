@@ -50,19 +50,28 @@
     <Compile Include="CVehicle.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Doki.cs" />
-    <Compile Include="FormCruiser.cs">
+    <Compile Include="FormCruiserConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCruiser.Designer.cs">
-      <DependentUpon>FormCruiser.cs</DependentUpon>
+    <Compile Include="FormCruiserConfig.Designer.cs">
+      <DependentUpon>FormCruiserConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDoki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoki.Designer.cs">
+      <DependentUpon>FormDoki.cs</DependentUpon>
     </Compile>
     <Compile Include="ITransport.cs" />
     <Compile Include="MultiLevelDoki.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Warship.cs" />
-    <EmbeddedResource Include="FormCruiser.resx">
-      <DependentUpon>FormCruiser.cs</DependentUpon>
+    <EmbeddedResource Include="FormCruiserConfig.resx">
+      <DependentUpon>FormCruiserConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoki.resx">
+      <DependentUpon>FormDoki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

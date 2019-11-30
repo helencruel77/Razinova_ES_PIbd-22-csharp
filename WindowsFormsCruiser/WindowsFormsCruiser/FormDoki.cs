@@ -14,6 +14,7 @@ namespace WindowsFormscruiser
     public partial class FormCruiser : Form
     {
         MultiLevelDoki doki;
+        FormCruiserConfig form;
         private const int countLevel = 5;
 
         public FormCruiser()
@@ -39,6 +40,30 @@ namespace WindowsFormscruiser
                 pictureBoxDoki.Image = bmp;
             }
         }
+
+        private void buttonSetWarship_Click(object sender, EventArgs e)
+        {
+            form = new FormCruiserConfig();
+            form.AddEvent(AddWarship);
+            form.Show();
+        }
+
+        private void AddWarship(ITransport warship)
+        {
+            if (warship != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = doki[listBoxLevels.SelectedIndex] + warship;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("не удалось поставить");
+                }
+            }
+        }
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -46,8 +71,8 @@ namespace WindowsFormscruiser
                 ColorDialog dialog = new ColorDialog();
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new Warship(100, 1000, dialog.Color);
-                    int place = doki[listBoxLevels.SelectedIndex] + car;
+                    var warship = new Warship(100, 1000, dialog.Color);
+                    int place = doki[listBoxLevels.SelectedIndex] + warship;
                     if (place == -1)
                     {
                         MessageBox.Show("Нет свободных мест", "Ошибка",

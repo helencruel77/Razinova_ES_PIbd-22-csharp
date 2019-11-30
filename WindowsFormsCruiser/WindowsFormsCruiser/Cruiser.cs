@@ -47,6 +47,11 @@ namespace WindowsFormscruiser
             }
 
         }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+
+        }
 
     }
 }
