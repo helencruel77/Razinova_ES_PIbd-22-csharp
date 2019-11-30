@@ -18,6 +18,17 @@ namespace WindowsFormscruiser
             Weight = weight;
             MainColor = mainColor;
         }
+        public Warship(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -55,8 +66,12 @@ namespace WindowsFormscruiser
             Brush main = new SolidBrush(MainColor);
             Brush dop = new SolidBrush(Color.Gray);
             g.FillRectangle(main, _startPosX, _startPosY + 30, 90, 15);
-            g.FillRectangle(main, _startPosX + 20, _startPosY + 20, 55, 10);
-            g.FillRectangle(dop, _startPosX + 30, _startPosY, 15, 20);
+            g.FillRectangle(dop, _startPosX + 20, _startPosY + 20, 55, 10);
+            g.FillRectangle(main, _startPosX + 30, _startPosY, 15, 20);
+        }
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }

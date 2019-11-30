@@ -140,8 +140,5 @@ namespace WindowsFormsCruiser
             eventAddWarship?.Invoke(warship);
             Close();
         }
-
-
-
     }
 }

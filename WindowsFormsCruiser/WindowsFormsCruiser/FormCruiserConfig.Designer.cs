@@ -149,7 +149,7 @@
             // 
             // panelOrange
             // 
-            this.panelOrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panelOrange.BackColor = System.Drawing.Color.Orange;
             this.panelOrange.Location = new System.Drawing.Point(70, 183);
             this.panelOrange.Name = "panelOrange";
             this.panelOrange.Size = new System.Drawing.Size(36, 35);
@@ -158,7 +158,7 @@
             // 
             // panelPurple
             // 
-            this.panelPurple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panelPurple.BackColor = System.Drawing.Color.Purple;
             this.panelPurple.Location = new System.Drawing.Point(13, 183);
             this.panelPurple.Name = "panelPurple";
             this.panelPurple.Size = new System.Drawing.Size(36, 35);
@@ -185,7 +185,7 @@
             // 
             // panelBlue
             // 
-            this.panelBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panelBlue.BackColor = System.Drawing.Color.Blue;
             this.panelBlue.Location = new System.Drawing.Point(70, 76);
             this.panelBlue.Name = "panelBlue";
             this.panelBlue.Size = new System.Drawing.Size(36, 35);
@@ -194,7 +194,7 @@
             // 
             // panelGreen
             // 
-            this.panelGreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panelGreen.BackColor = System.Drawing.Color.Green;
             this.panelGreen.Location = new System.Drawing.Point(13, 76);
             this.panelGreen.Name = "panelGreen";
             this.panelGreen.Size = new System.Drawing.Size(36, 35);

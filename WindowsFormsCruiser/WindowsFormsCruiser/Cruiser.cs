@@ -20,12 +20,26 @@ namespace WindowsFormscruiser
             DopColor = dopColor;
             Rocket = rocket;
             Flag = flag;
-
         }
+
+        public Cruiser(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Flag = Convert.ToBoolean(strs[4]);
+                Rocket = Convert.ToBoolean(strs[5]);
+            }
+        }
+
         public override void DrawWarship(Graphics g)
         {
-            base.DrawWarship(g);
-            Brush main = new SolidBrush(Color.Black);
+            
+            Brush main = new SolidBrush(MainColor);
             Brush dop = new SolidBrush(DopColor);
 
             Brush red = new SolidBrush(Color.Red);
@@ -39,6 +53,7 @@ namespace WindowsFormscruiser
                 g.FillEllipse(dop, _startPosX + 45, _startPosY + 53, 5, 5);
                 g.FillRectangle(red, _startPosX + 45, _startPosY + 54, 3, 4);
             }
+            base.DrawWarship(g);
             if (Flag)
             {
                 g.FillRectangle(white, _startPosX + 35, _startPosY + 33, 18, 3);
@@ -50,9 +65,11 @@ namespace WindowsFormscruiser
         public void SetDopColor(Color color)
         {
             DopColor = color;
-
         }
-
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + Flag + ";" + Rocket;
+        }
     }
 }
 
