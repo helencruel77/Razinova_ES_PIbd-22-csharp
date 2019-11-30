@@ -7,8 +7,10 @@ using WindowsFormscruiser;
 
 namespace WindowsFormsCruiser
 {
+    public delegate void warshipDelegate(ITransport warship);
     static class Program
     {
+        [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
