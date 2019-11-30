@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsCruiser;
 
 namespace WindowsFormscruiser
 {
@@ -28,7 +29,7 @@ namespace WindowsFormscruiser
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new DokiOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -53,11 +54,11 @@ namespace WindowsFormscruiser
         {
             if (!p.CheckFreePlace(index))
             {
-                T car = p._places[index];
+                T warship = p._places[index];
                 p._places.Remove(index);
-                return car;
+                return warship;
             }
-            return null;
+            throw new DokiNotFoundException(index);
         }
         public void Draw(Graphics g)
         {
@@ -92,7 +93,7 @@ namespace WindowsFormscruiser
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new DokiNotFoundException(ind);
             }
             set
             {
@@ -101,6 +102,10 @@ namespace WindowsFormscruiser
                     _places.Add(ind, value);
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 30, ind % 5
                     * _placeSizeHeight + 30, PictureWidth, PictureHeight);
+                }
+                else
+                {
+                    throw new DokiOccupiedPlaceException(ind);
                 }
             }
         }

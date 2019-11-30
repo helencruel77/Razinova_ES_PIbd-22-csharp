@@ -4,7 +4,7 @@
     {
         private System.ComponentModel.IContainer components = null;
 
-        protected override void Dispose(bool disposing)
+      protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -13,12 +13,8 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
-        /// </summary>
         private void InitializeComponent()
         {
             this.pictureBoxDoki = new System.Windows.Forms.PictureBox();
@@ -29,7 +25,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,15 +34,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoki)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeWarship)).BeginInit();
-            this.menuStrip.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxDoki
             // 
-            this.pictureBoxDoki.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxDoki.Location = new System.Drawing.Point(0, 24);
+            this.pictureBoxDoki.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxDoki.Location = new System.Drawing.Point(0, 27);
             this.pictureBoxDoki.Name = "pictureBoxDoki";
-            this.pictureBoxDoki.Size = new System.Drawing.Size(656, 426);
+            this.pictureBoxDoki.Size = new System.Drawing.Size(656, 423);
             this.pictureBoxDoki.TabIndex = 0;
             this.pictureBoxDoki.TabStop = false;
             // 
@@ -100,7 +97,7 @@
             // listBoxLevels
             // 
             this.listBoxLevels.FormattingEnabled = true;
-            this.listBoxLevels.Location = new System.Drawing.Point(662, 12);
+            this.listBoxLevels.Location = new System.Drawing.Point(662, 27);
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(126, 95);
             this.listBoxLevels.TabIndex = 4;
@@ -116,15 +113,15 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonSetWarship_Click);
             // 
-            // menuStrip
+            // menuStrip1
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip.TabIndex = 5;
-            this.menuStrip.Text = "menuStrip1";
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
@@ -140,25 +137,24 @@
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.СохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
             this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
-            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.ЗагрузитьToolStripMenuItem_Click);
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.Filter = "txt file | *.txt";
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "txt file | *.txt";
             // 
-            // FormCruiser
+            // FormDoki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,16 +163,16 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.pictureBoxDoki);
-            this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
-            this.Name = "FormCruiser";
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "FormDoki";
             this.Text = "Доки";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoki)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeWarship)).EndInit();
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,15 +181,14 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxDoki;
-        private System.Windows.Forms.Button buttonCreate;
-        private System.Windows.Forms.Button buttonCreateCruiser;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxTakeWarship;
         private System.Windows.Forms.Button buttonTakeWarship;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxLevels;
-        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
