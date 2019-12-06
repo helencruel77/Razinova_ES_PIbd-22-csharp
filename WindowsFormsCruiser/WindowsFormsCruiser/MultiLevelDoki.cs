@@ -134,6 +134,11 @@ pictureHeight));
                 return true;
             }
         }
+        public void Sort()
+        {
+            parkingStages.Sort();
+        }
+
     }
 
 }

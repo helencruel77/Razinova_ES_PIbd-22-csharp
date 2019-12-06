@@ -10,8 +10,8 @@ namespace WindowsFormscruiser
 {
     public class Warship : CVehicle
     {
-        protected const int carWidth = 100;
-        protected const int carHeight = 60;
+        protected const int warshipWidth = 100;
+        protected const int warshipHeight = 60;
         public Warship(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
@@ -35,7 +35,7 @@ namespace WindowsFormscruiser
             switch (direction)
             {
                 case Direction.Right:
-                    if (_startPosX + step < _pictureWidth - carWidth)
+                    if (_startPosX + step < _pictureWidth - warshipWidth)
                     {
                         _startPosX += step;
                     }
@@ -53,7 +53,7 @@ namespace WindowsFormscruiser
                     }
                     break;
                 case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - carHeight)
+                    if (_startPosY + step < _pictureHeight - warshipHeight)
                     {
                         _startPosY += step;
                     }
@@ -72,6 +72,70 @@ namespace WindowsFormscruiser
         public override string ToString()
         {
             return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
+        }
+        public int CompareTo(Warship other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return MaxSpeed.CompareTo(other.MaxSpeed);
+            }
+            if (Weight != other.Weight)
+            {
+                return Weight.CompareTo(other.Weight);
+            }
+            if (MainColor != other.MainColor)
+            {
+                MainColor.Name.CompareTo(other.MainColor.Name);
+            }
+            return 0;
+        }
+        public bool Equals(Warship other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Warship warshipObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(warshipObj);
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
