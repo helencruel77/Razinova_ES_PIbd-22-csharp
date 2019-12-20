@@ -53,7 +53,7 @@ pictureHeight));
                     {
                         try
                         {
-                            var warship = level[i];
+                           var warship = level[i];
                             if (warship.GetType().Name == "Warship")
                             {
                                 fs.Write(i + ":Warship:");
@@ -70,7 +70,6 @@ pictureHeight));
             }
             return true;
         }
-
         public bool LoadData(string filename)
         {
             if (!File.Exists(filename))
@@ -134,8 +133,4 @@ pictureHeight));
         }
 
     }
-
 }
-
-
-
