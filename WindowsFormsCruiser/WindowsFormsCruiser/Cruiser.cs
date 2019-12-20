@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormscruiser
 {
-    public class Cruiser : Warship
+    public class Cruiser : Warship, IComparable<Cruiser>, IEquatable<Cruiser>
     {
         public Color DopColor { private set; get; }
         public bool Rocket { private set; get; }
@@ -69,6 +69,71 @@ namespace WindowsFormscruiser
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + Flag + ";" + Rocket;
+        }
+        public int CompareTo(Cruiser other)
+        {
+            var res = (this is Warship).CompareTo(other is Warship);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (Rocket != other.Rocket)
+            {
+                return Rocket.CompareTo(other.Rocket);
+            }
+            if (Flag != other.Flag)
+            {
+                return Flag.CompareTo(other.Flag);
+            }
+            return 0;
+        }
+        public bool Equals(Cruiser other)
+        {
+            var res = (this as Warship).Equals(other as Warship);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Rocket != other.Rocket)
+            {
+                return false;
+            }
+            if (Flag != other.Flag)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Cruiser warshipObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(warshipObj);
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
