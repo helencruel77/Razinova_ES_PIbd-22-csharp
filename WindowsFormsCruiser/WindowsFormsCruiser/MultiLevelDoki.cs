@@ -48,7 +48,6 @@ pictureHeight));
                 fs.Write("CountLeveles:" + parkingStages.Count + Environment.NewLine);
                 foreach (var level in parkingStages)
                 {
-                    //Начинаем уровень
                     fs.Write("Level" + Environment.NewLine);
                     for (int i = 0; i < countPlaces; i++)
                     {
@@ -56,8 +55,6 @@ pictureHeight));
                             var warship = level[i];
                         if (warship != null)
                         {
-                            //если место не пустое
-                            //Записываем тип мшаины
                             if (warship.GetType().Name == "Warship")
                             {
                                 fs.Write(i + ":Warship:");
@@ -66,7 +63,6 @@ pictureHeight));
                             {
                                 fs.Write(i + ":Cruiser:");
                             }
-                            //Записываемые параметры
                             fs.Write(warship + "\n");
 
                         }
@@ -92,7 +88,6 @@ pictureHeight));
                 line = fs.ReadLine();
                 if (line.Contains("CountLeveles"))
                 {
-                    //считываем количество уровней
                     int count = Convert.ToInt32(line.Split(':')[1]);
                     if (parkingStages != null)
                     {
@@ -111,7 +106,6 @@ pictureHeight));
                     if (line == null)
                         break;
 
-                    //идем по считанным записям
                     if (line == "Level")
                     {
                         counter++;
