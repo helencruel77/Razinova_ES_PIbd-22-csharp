@@ -16,8 +16,6 @@ namespace WindowsFormsCruiser
         ITransport warship = null;
 
         private event warshipDelegate eventAddWarship;
-
-
         public FormCruiserConfig()
         {
             InitializeComponent();
@@ -39,7 +37,7 @@ namespace WindowsFormsCruiser
             {
                 Bitmap bmp = new Bitmap(pictureBoxWarship.Width, pictureBoxWarship.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                warship.SetPosition(20, 30, pictureBoxWarship.Width, pictureBoxWarship.Height);
+                warship.SetPosition(30, 30, pictureBoxWarship.Width, pictureBoxWarship.Height);
                 warship.DrawWarship(gr);
                 pictureBoxWarship.Image = bmp;
             }
@@ -80,7 +78,6 @@ namespace WindowsFormsCruiser
                 e.Effect = DragDropEffects.None;
             }
         }
-
 
         private void panelWarship_DragDrop(object sender, DragEventArgs e)
         {
@@ -140,5 +137,8 @@ namespace WindowsFormsCruiser
             eventAddWarship?.Invoke(warship);
             Close();
         }
+
+
+
     }
 }

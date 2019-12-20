@@ -51,10 +51,9 @@ pictureHeight));
                     fs.Write("Level" + Environment.NewLine);
                     for (int i = 0; i < countPlaces; i++)
                     {
-                        
-                            var warship = level[i];
-                        if (warship != null)
+                        try
                         {
+                           var warship = level[i];
                             if (warship.GetType().Name == "Warship")
                             {
                                 fs.Write(i + ":Warship:");
@@ -64,15 +63,13 @@ pictureHeight));
                                 fs.Write(i + ":Cruiser:");
                             }
                             fs.Write(warship + "\n");
-
                         }
+                        finally { }
                     }
                 }
             }
             return true;
         }
-        
-
         public bool LoadData(string filename)
         {
             if (!File.Exists(filename))
@@ -98,7 +95,7 @@ pictureHeight));
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("Неверный формат файла");
                 }
                 while (true)
                 {
