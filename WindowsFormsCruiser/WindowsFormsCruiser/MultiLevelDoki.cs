@@ -75,6 +75,7 @@ pictureHeight));
             }
             return true;
         }
+        
 
         public bool LoadData(string filename)
         {
