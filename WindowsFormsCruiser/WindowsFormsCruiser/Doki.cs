@@ -84,5 +84,25 @@ namespace WindowsFormscruiser
 
             }
         }
+        public T this[int ind]
+        {
+            get
+            {
+                if (_places.ContainsKey(ind))
+                {
+                    return _places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlace(ind))
+                {
+                    _places.Add(ind, value);
+                    _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 30, ind % 5
+                    * _placeSizeHeight + 30, PictureWidth, PictureHeight);
+                }
+            }
+        }
     }
 }
